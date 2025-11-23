@@ -1,0 +1,9 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://g3neralola.com/sitemap.xml
+
+# Crawl-delay for politeness
+Crawl-delay: 1
