@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Instagram, Mail, Phone } from "lucide-react";
+import { Instagram, Mail, Phone, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -60,11 +60,27 @@ export default function Footer() {
                 <span>@ad3ola_olamil3kan_</span>
               </a>
               <a
-                href="mailto:contact@g3neralola.com"
+                href="mailto:adeolaomogbolahan48@gmail.com"
                 className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                <span>contact@g3neralola.com</span>
+                <span>adeolaomogbolahan48@gmail.com</span>
+              </a>
+              <a
+                href="tel:+2348021247749"
+                className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                <span>+234 802 124 7749</span>
+              </a>
+              <a
+                href="https://wa.me/2348021247749"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>
