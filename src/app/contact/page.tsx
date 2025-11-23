@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, Instagram, MessageCircle, Send } from "lucide-react";
+import { sendContactEmail } from "@/app/actions/send-contact-email";
+import { toast } from "sonner";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -18,21 +20,17 @@ export default function ContactPage() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
-    setSubmitted(true);
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setSubmitted(false);
+    try {
+      await sendContactEmail(formData);
+      
+      toast.success("Message sent successfully! I'll get back to you within 24 hours.");
+      
+      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -40,7 +38,11 @@ export default function ContactPage() {
         service: "",
         message: "",
       });
-    }, 3000);
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Failed to send message. Please try again or contact me directly via WhatsApp.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -137,6 +139,7 @@ export default function ContactPage() {
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="John Doe"
+                          disabled={isSubmitting}
                         />
                       </div>
                       <div>
@@ -154,6 +157,7 @@ export default function ContactPage() {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="john@example.com"
+                          disabled={isSubmitting}
                         />
                       </div>
                     </div>
@@ -173,6 +177,7 @@ export default function ContactPage() {
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="+234 XXX XXX XXXX"
+                          disabled={isSubmitting}
                         />
                       </div>
                       <div>
@@ -189,6 +194,7 @@ export default function ContactPage() {
                           value={formData.service}
                           onChange={handleChange}
                           placeholder="e.g., Portrait Photography"
+                          disabled={isSubmitting}
                         />
                       </div>
                     </div>
@@ -209,6 +215,7 @@ export default function ContactPage() {
                         placeholder="Tell me about your project or photography needs..."
                         rows={6}
                         className="resize-none"
+                        disabled={isSubmitting}
                       />
                     </div>
 
@@ -216,11 +223,9 @@ export default function ContactPage() {
                       type="submit"
                       size="lg"
                       className="w-full"
-                      disabled={isSubmitting || submitted}
+                      disabled={isSubmitting}
                     >
-                      {submitted ? (
-                        "Message Sent!"
-                      ) : isSubmitting ? (
+                      {isSubmitting ? (
                         "Sending..."
                       ) : (
                         <>
