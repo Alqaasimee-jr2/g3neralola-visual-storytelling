@@ -56,14 +56,14 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: "Email",
-      value: "contact@g3neralola.com",
-      link: "mailto:contact@g3neralola.com",
+      value: "adeolaomogbolahan48@gmail.com",
+      link: "mailto:adeolaomogbolahan48@gmail.com",
     },
     {
       icon: Phone,
       title: "Phone",
-      value: "+234 XXX XXX XXXX",
-      link: "tel:+234XXXXXXXXXX",
+      value: "+234 802 124 7749",
+      link: "tel:+2348021247749",
     },
     {
       icon: Instagram,
@@ -75,7 +75,7 @@ export default function ContactPage() {
       icon: MessageCircle,
       title: "WhatsApp",
       value: "Message on WhatsApp",
-      link: "https://wa.me/234XXXXXXXXXX",
+      link: "https://wa.me/2348021247749",
     },
   ];
 
@@ -288,7 +288,7 @@ export default function ContactPage() {
                     className="w-full bg-white text-black hover:bg-gray-200"
                   >
                     <a
-                      href="https://wa.me/234XXXXXXXXXX"
+                      href="https://wa.me/2348021247749"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
