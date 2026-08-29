@@ -2,38 +2,39 @@ import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://g3neralola.com';
-  const currentDate = new Date();
+  const lastModified = new Date();
 
   return [
     {
       url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 1,
+      lastModified,
+      changeFrequency: 'daily',
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/portfolio`,
-      lastModified: currentDate,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/services`,
+      lastModified,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: currentDate,
+      lastModified,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/services`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
       url: `${baseUrl}/contact`,
-      lastModified: currentDate,
+      lastModified,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.8,
     },
   ];
 }
+
