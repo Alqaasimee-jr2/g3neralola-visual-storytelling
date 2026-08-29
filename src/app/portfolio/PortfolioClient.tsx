@@ -3,39 +3,38 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import Lightbox, { GalleryItem } from "@/components/Lightbox";
-import { Camera, Sparkles, Filter, Grid, LayoutGrid, ArrowRight, Calendar } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const portfolioImages: GalleryItem[] = [
   // Portraits
   {
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Screenshot_20240717_192507_Instagram-1763320468631.jpg?width=8000&height=8000&resize=contain",
-    alt: "Pink hijab & dark eyewear editorial contrast",
+    alt: "Pink hijab & eyewear editorial contrast",
     category: "Portraits",
-    story: "Editorial framing playing with saturated magenta hues and crisp Lagos sunlight.",
+    story: "Editorial framing with saturated magenta hues in Lagos sunlight.",
     location: "Lagos, Nigeria",
   },
   {
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0517-1763320481424.jpg?width=8000&height=8000&resize=contain",
     alt: "Outdoor red attire portrait with natural glow",
     category: "Portraits",
-    story: "Warm outdoor portrait capturing relaxed elegance and rich skin undertones.",
+    story: "Warm portrait capturing relaxed elegance and rich skin undertones.",
     location: "Ikeja, Lagos",
   },
   {
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Photo_1753443628920-1763320480153.jpg?width=8000&height=8000&resize=contain",
     alt: "Basketball court golden hour portrait",
     category: "Portraits",
-    story: "High-contrast urban sports aesthetic blended with contemporary youth fashion.",
+    story: "High-contrast urban sports aesthetic blended with youth fashion.",
     location: "LASU Sports Complex",
   },
   {
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/1757264318184-1763320761003.jpeg?width=8000&height=8000&resize=contain",
     alt: "Curly hair editorial with colorful sunglasses",
     category: "Portraits",
-    story: "Vibrant Gen-Z creative expression with sharp depth-of-field.",
+    story: "Vibrant creative expression with sharp depth of field.",
     location: "Surulere, Lagos",
   },
   {
@@ -65,7 +64,7 @@ const portfolioImages: GalleryItem[] = [
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Photo_1719729734474-1-1763320490472.jpg?width=8000&height=8000&resize=contain",
     alt: "Lounge interior mood & ambiance",
     category: "Street & Lifestyle",
-    story: "Lagos nightlife warmth, moody tones, and urban lifestyle atmosphere.",
+    story: "Lagos nightlife warmth, moody tones, and urban lifestyle.",
     location: "Victoria Island, Lagos",
   },
   {
@@ -79,7 +78,7 @@ const portfolioImages: GalleryItem[] = [
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/ad3ola_olamil3kan_1763320848766-1763320972260.jpeg?width=8000&height=8000&resize=contain",
     alt: "Low-angle skyward architectural perspective",
     category: "Street & Lifestyle",
-    story: "Dramatic upward perspective capturing the grandeur of Nigerian sky and structure.",
+    story: "Dramatic upward perspective capturing Nigerian skies and structures.",
     location: "Lagos, Nigeria",
   },
 
@@ -88,7 +87,7 @@ const portfolioImages: GalleryItem[] = [
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Photo_1749457997626-1763320478848.jpg?width=8000&height=8000&resize=contain",
     alt: "Academic convocation gown milestone",
     category: "Campus & Convocation",
-    story: "Capturing the triumph and celebratory colors of university graduation.",
+    story: "Triumph and celebratory colors of university graduation.",
     location: "LASU Ojo Campus",
   },
   {
@@ -102,14 +101,14 @@ const portfolioImages: GalleryItem[] = [
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/786650331-1763320473621.jpg?width=8000&height=8000&resize=contain",
     alt: "Basketball court through fence framing",
     category: "Campus & Convocation",
-    story: "Creative foreground framing creating depth in athletic campus spaces.",
+    story: "Foreground framing creating depth in athletic campus spaces.",
     location: "LASU Sports Field",
   },
   {
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/1086659322-1763320473931.jpg?width=8000&height=8000&resize=contain",
     alt: "Live basketball game motion freeze",
     category: "Campus & Convocation",
-    story: "Freezing peak athleticism, teamwork, and raw collegiate energy.",
+    story: "Freezing raw athleticism and collegiate energy.",
     location: "Lagos, Nigeria",
   },
 
@@ -125,14 +124,14 @@ const portfolioImages: GalleryItem[] = [
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/8d17b7fbad6fba7b104d86d2de6b7468-1763320471099.png?width=8000&height=8000&resize=contain",
     alt: "White and blue petal botanical macro",
     category: "Fine Art & Macro",
-    story: "Microscopic nature textures and delicate color gradients.",
+    story: "Microscopic nature textures and delicate gradients.",
     location: "Studio Botanical",
   },
   {
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/PSX_20240510_194341-1763320762070.jpg?width=8000&height=8000&resize=contain",
     alt: "Vibrant marble light refraction study",
     category: "Fine Art & Macro",
-    story: "Optical refractions and vibrant spectrum play through glass marbles.",
+    story: "Optical refractions and vibrant spectrum play through glass.",
     location: "Studio Experiment",
   },
   {
@@ -184,143 +183,98 @@ export default function PortfolioClient() {
   };
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen pt-24 pb-20 bg-background text-foreground selection:bg-white selection:text-black">
       {/* Header */}
-      <section className="py-14 sm:py-18 px-4 sm:px-6 lg:px-8 bg-secondary/50 border-b border-border/60">
-        <div className="container mx-auto text-center max-w-4xl space-y-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider mb-3">
-              <Camera className="w-3.5 h-3.5" />
-              <span>Selected Portfolio</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif tracking-tight">
-              Visual Archives
+      <section className="px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto pt-8 pb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="space-y-2">
+            <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">The Archives</span>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif font-bold tracking-tight">
+              Selected Works
             </h1>
-            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto pt-2">
-              A curated collection of portraits, campus milestones, and street chronicles captured across Lagos and Nigeria.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Sticky Category Filter Bar */}
-      <section className="py-4 sm:py-5 px-4 sm:px-6 lg:px-8 border-b sticky top-20 glass-nav z-40">
-        <div className="container mx-auto">
-          <div className="flex flex-wrap gap-2 sm:gap-3 justify-center items-center">
-            {CATEGORIES.map((category) => {
-              const count =
-                category === "All"
-                  ? portfolioImages.length
-                  : portfolioImages.filter((img) => img.category === category).length;
-              const isSelected = selectedCategory === category;
-
-              return (
-                <Button
-                  key={category}
-                  variant={isSelected ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setSelectedCategory(category)}
-                  className={`rounded-full text-xs sm:text-sm font-medium transition-all ${
-                    isSelected ? "shadow-md scale-105" : "hover:bg-secondary"
-                  }`}
-                >
-                  <span>{category}</span>
-                  <span
-                    className={`ml-1.5 px-1.5 py-0.2 text-[10px] rounded-full font-mono ${
-                      isSelected
-                        ? "bg-primary-foreground/20 text-primary-foreground"
-                        : "bg-secondary text-muted-foreground"
-                    }`}
-                  >
-                    {count}
-                  </span>
-                </Button>
-              );
-            })}
           </div>
-        </div>
-      </section>
-
-      {/* Gallery Grid */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto max-w-7xl">
-          <motion.div
-            key={selectedCategory}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
-          >
-            {filteredImages.map((image, index) => (
-              <motion.div
-                key={image.src + index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.35, delay: index * 0.04 }}
-                className="group relative aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer bg-secondary shadow-md hover:shadow-xl transition-all duration-300 border border-border/60"
-                onClick={() => openLightbox(index)}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                />
-
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5 text-white">
-                  <div className="flex justify-end">
-                    <span className="px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold uppercase tracking-wider">
-                      {image.category}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h4 className="text-sm sm:text-base font-bold font-serif leading-snug">
-                      {image.alt}
-                    </h4>
-                    <p className="text-xs text-gray-300 mt-1 line-clamp-2">{image.story}</p>
-                    <div className="mt-3 flex items-center justify-between text-xs text-amber-200">
-                      <span>{image.location}</span>
-                      <span className="font-semibold underline underline-offset-2">View →</span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {filteredImages.length === 0 && (
-            <div className="text-center py-20 space-y-3">
-              <p className="text-muted-foreground text-lg">No images found in this category.</p>
-              <Button variant="outline" onClick={() => setSelectedCategory("All")}>
-                Show All Photos
-              </Button>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Booking Teaser Banner */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary/60 border-t border-border/60">
-        <div className="container mx-auto max-w-4xl text-center space-y-5">
-          <h3 className="text-2xl sm:text-3xl font-bold font-serif">
-            Inspired by these visuals?
-          </h3>
-          <p className="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto">
-            Every session is personalized with location scouting, moodboards, and comfortable direction.
+          <p className="text-sm font-serif italic text-muted-foreground max-w-xs">
+            18+ photographic stories across Lagos & Nigeria.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-            <Button asChild className="rounded-full px-8">
-              <Link href="/services">View Session Packages & Pricing</Link>
-            </Button>
-            <Button asChild variant="outline" className="rounded-full px-8">
-              <Link href="/contact">Check Calendar Availability</Link>
+        </div>
+      </section>
+
+      {/* Sleek Minimal Category Tabs (No Heavy Box Outlines) */}
+      <section className="px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto pb-8">
+        <div className="flex flex-wrap gap-x-6 gap-y-2 border-b border-border/40 pb-4 text-xs font-mono uppercase tracking-wider">
+          {CATEGORIES.map((cat) => {
+            const isSelected = selectedCategory === cat;
+            const count =
+              cat === "All"
+                ? portfolioImages.length
+                : portfolioImages.filter((img) => img.category === cat).length;
+
+            return (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`py-1 transition-all flex items-center gap-1.5 cursor-pointer ${
+                  isSelected
+                    ? "text-foreground font-bold border-b-2 border-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <span>{cat}</span>
+                <span className="text-[10px] opacity-60">({count})</span>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Pure Borderless Edge-to-Edge Gallery Grid */}
+      <section className="px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto py-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+          {filteredImages.map((image, index) => (
+            <motion.div
+              key={image.src + index}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.03 }}
+              className="group relative aspect-[4/5] rounded-xl overflow-hidden cursor-pointer bg-neutral-900 shadow-md"
+              onClick={() => openLightbox(index)}
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+              />
+
+              {/* Minimal Hover Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-gray-400">
+                  {image.category}
+                </span>
+                <p className="text-sm sm:text-base font-serif font-bold leading-snug">
+                  {image.alt}
+                </p>
+                <div className="flex justify-between items-center text-xs text-amber-200 mt-2">
+                  <span>{image.location}</span>
+                  <span className="underline underline-offset-4">View Story →</span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Seamless Minimalist CTA */}
+      <section className="pt-24 pb-12 px-4 text-center">
+        <div className="max-w-xl mx-auto space-y-4">
+          <h3 className="text-2xl sm:text-3xl font-serif font-bold">Have a specific look in mind?</h3>
+          <p className="text-muted-foreground text-sm font-serif italic">
+            Sessions are tailored with location scouting and relaxed direction.
+          </p>
+          <div className="pt-2">
+            <Button asChild className="rounded-full px-8 py-6 bg-foreground text-background hover:opacity-90">
+              <Link href="/services">View Investment Packages</Link>
             </Button>
           </div>
         </div>

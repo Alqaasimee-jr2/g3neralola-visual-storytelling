@@ -40,7 +40,7 @@ export default function BeforeAfterSlider({
         </p>
       </div>
 
-      <div className="relative aspect-[4/3] sm:aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-2xl border border-border select-none">
+      <div className="relative aspect-[4/3] sm:aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-2xl select-none bg-neutral-950">
         {/* Background Image (After - Graded) */}
         <Image
           src={afterImage}
@@ -49,7 +49,7 @@ export default function BeforeAfterSlider({
           className="object-cover"
           priority
         />
-        <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-medium border border-white/20">
+        <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-mono tracking-wider">
           {afterLabel}
         </div>
 
@@ -65,18 +65,18 @@ export default function BeforeAfterSlider({
             className="object-cover"
             priority
           />
-          <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-medium border border-white/20">
+          <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-mono tracking-wider">
             {beforeLabel}
           </div>
         </div>
 
         {/* Slider Divider Line */}
         <div
-          className="absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] z-20 pointer-events-none"
+          className="absolute top-0 bottom-0 w-0.5 bg-white/90 shadow-[0_0_12px_rgba(0,0,0,0.8)] z-20 pointer-events-none"
           style={{ left: `${sliderPosition}%` }}
         >
-          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white text-black flex items-center justify-center shadow-lg border-2 border-primary/20">
-            <Sliders className="w-4 h-4 text-black" />
+          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white text-black flex items-center justify-center shadow-2xl">
+            <Sliders className="w-3.5 h-3.5 text-black" />
           </div>
         </div>
 
@@ -92,9 +92,9 @@ export default function BeforeAfterSlider({
         />
       </div>
 
-      <div className="flex justify-between items-center text-xs text-muted-foreground mt-3 px-2">
-        <span>← Drag left for Raw Capture</span>
-        <span>Drag right for Final Grade →</span>
+      <div className="flex justify-between items-center text-[11px] font-mono text-muted-foreground mt-3 px-1">
+        <span>← Raw Light</span>
+        <span>Signature Grade →</span>
       </div>
     </div>
   );

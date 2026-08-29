@@ -38,7 +38,7 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isTransparent
           ? "bg-transparent text-white"
-          : "glass-nav border-b border-border/40 text-foreground shadow-xs"
+          : "glass-nav text-foreground shadow-xs"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

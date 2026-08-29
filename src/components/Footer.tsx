@@ -3,29 +3,25 @@ import { Instagram, Mail, Phone, MessageCircle, MapPin, Sparkles, Camera } from 
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary/70 border-t border-border/60">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+    <footer className="bg-secondary/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center space-x-2.5">
-              <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-foreground text-background flex items-center justify-center">
                 <Camera className="w-4 h-4" />
               </div>
               <span className="text-2xl font-bold font-serif tracking-tight">G3NERALOLA</span>
             </div>
-            <p className="text-muted-foreground text-sm sm:text-base max-w-sm leading-relaxed">
-              Lagos-based visual storytelling rooted in ex-commando discipline and peace studies insight. 
-              Capturing raw human emotion, cinematic light, and unfiltered Nigerian culture.
+            <p className="text-muted-foreground text-sm max-w-sm leading-relaxed font-serif italic">
+              Lagos-based visual storytelling. Raw portraits, street culture, and cinematic life.
             </p>
 
             {/* Live Availability Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background border border-border/80 text-xs font-medium">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span>Accepting Bookings in Lagos & Beyond</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/80 text-xs font-mono">
+              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Accepting Bookings • Lagos & Beyond</span>
             </div>
           </div>
 
