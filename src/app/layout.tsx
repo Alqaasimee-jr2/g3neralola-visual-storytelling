@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
-import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://g3neralola.com'),
   title: {
-    default: "G3NERALOLA - Nigerian Photographer | Portraits & Lifestyle Photography",
-    template: "%s | G3NERALOLA Photography"
+    default: "G3NERALOLA - Visual Storyteller & Nigerian Photographer",
+    template: "%s | G3NERALOLA Visual Storytelling"
   },
-  description: "G3NERALOLA is a Lagos-based mobile photographer specializing in portraits, lifestyle, street photography, and campus life. Book professional photography sessions in Nigeria.",
-  keywords: ["Nigerian photographer", "Lagos photographer", "portrait photography", "lifestyle photography", "street photography", "mobile photography", "campus photography", "G3NERALOLA", "ad3ola_olamil3kan_", "photography Nigeria", "professional photographer Lagos"],
+  description: "Adeola Olamilekan (G3NERALOLA) is a Lagos-based visual storyteller specializing in authentic portraiture, lifestyle narratives, campus milestones, and expressive street photography.",
+  keywords: ["Nigerian photographer", "Lagos photographer", "portrait photography Lagos", "lifestyle photography Nigeria", "street photography Lagos", "LASU photographer", "G3NERALOLA", "ad3ola_olamil3kan_", "creative director Lagos", "editorial photographer Nigeria"],
   authors: [{ name: "G3NERALOLA", url: "https://instagram.com/ad3ola_olamil3kan_" }],
   creator: "G3NERALOLA",
   publisher: "G3NERALOLA",
@@ -28,20 +27,20 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://g3neralola.com",
-    siteName: "G3NERALOLA Photography",
-    title: "G3NERALOLA - Nigerian Photographer | Portraits & Lifestyle",
-    description: "Lagos-based mobile photographer capturing real people in real moments. Professional portrait, lifestyle, and street photography services across Nigeria.",
+    siteName: "G3NERALOLA Visual Storytelling",
+    title: "G3NERALOLA - Visual Storyteller & Nigerian Photographer",
+    description: "Lagos-based visual storyteller capturing real human emotion, cinematic light, and unfiltered Nigerian narratives. Book portrait, lifestyle, and brand shoots.",
     images: [{
       url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763320227191.png?width=1200&height=630&resize=contain",
       width: 1200,
       height: 630,
-      alt: "G3NERALOLA - Professional Photographer"
+      alt: "G3NERALOLA - Visual Storyteller"
     }]
   },
   twitter: {
     card: "summary_large_image",
-    title: "G3NERALOLA - Nigerian Photographer | Portraits & Lifestyle",
-    description: "Lagos-based mobile photographer capturing real people in real moments. Book professional photography sessions.",
+    title: "G3NERALOLA - Visual Storyteller & Nigerian Photographer",
+    description: "Lagos-based visual storyteller capturing raw emotion and cinematic reality. Book your session.",
     images: ["https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763320227191.png?width=1200&height=630&resize=contain"],
     creator: "@ad3ola_olamil3kan_"
   },
@@ -71,7 +70,7 @@ export default function RootLayout({
     "@type": "ProfessionalService",
     "@id": "https://g3neralola.com",
     "name": "G3NERALOLA Photography",
-    "description": "Professional photography services specializing in portraits, lifestyle, and street photography in Lagos, Nigeria",
+    "description": "Professional photography and visual storytelling services in Lagos, Nigeria",
     "url": "https://g3neralola.com",
     "logo": "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763320227191.png",
     "image": "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763320227191.png",
@@ -94,9 +93,9 @@ export default function RootLayout({
     },
     "founder": {
       "@type": "Person",
-      "name": "G3NERALOLA",
+      "name": "Adeola Olamilekan (G3NERALOLA)",
       "alternateName": "ad3ola_olamil3kan_",
-      "jobTitle": "Professional Photographer",
+      "jobTitle": "Visual Storyteller & Photographer",
       "url": "https://instagram.com/ad3ola_olamil3kan_",
       "sameAs": [
         "https://instagram.com/ad3ola_olamil3kan_",
@@ -105,37 +104,7 @@ export default function RootLayout({
     },
     "sameAs": [
       "https://instagram.com/ad3ola_olamil3kan_"
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Photography Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Portrait Photography",
-            "description": "Professional portrait sessions that capture personality and essence"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Lifestyle Photography",
-            "description": "Natural, authentic photography in everyday moments"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Event Photography",
-            "description": "Comprehensive coverage of events and campus activities"
-          }
-        }
-      ]
-    }
+    ]
   };
 
   return (
@@ -147,24 +116,16 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased">
-        <ThemeProvider defaultTheme="system" storageKey="g3neralola-theme">
+      <body className="antialiased min-h-screen flex flex-col bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
+        <ThemeProvider defaultTheme="dark" storageKey="g3neralola-theme">
           <ErrorReporter />
-          <Script
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
-            strategy="afterInteractive"
-            data-target-origin="*"
-            data-message-type="ROUTE_CHANGE"
-            data-include-search-params="true"
-            data-only-in-iframe="true"
-            data-debug="true"
-            data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
-          />
           <Navbar />
-          {children}
+          <div className="flex-1">
+            {children}
+          </div>
           <Footer />
-          <Toaster />
-          <VisualEditsMessenger />
+          <WhatsAppFloatingButton />
+          <Toaster position="bottom-center" />
         </ThemeProvider>
       </body>
     </html>

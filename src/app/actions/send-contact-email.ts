@@ -7,6 +7,10 @@ export interface ContactFormData {
   email: string;
   phone?: string;
   service?: string;
+  shootDate?: string;
+  location?: string;
+  budget?: string;
+  look?: string;
   message: string;
 }
 
@@ -14,13 +18,13 @@ export async function sendContactEmail(data: ContactFormData) {
   try {
     // Validate required fields
     if (!data.name || !data.email || !data.message) {
-      throw new Error('Missing required fields');
+      throw new Error('Please fill in your name, email, and message.');
     }
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
-      throw new Error('Invalid email address');
+      throw new Error('Please provide a valid email address.');
     }
 
     // Create HTML email content
@@ -29,51 +33,77 @@ export async function sendContactEmail(data: ContactFormData) {
       <html>
         <head>
           <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background-color: #000; color: #fff; padding: 20px; text-align: center; }
-            .content { background-color: #f9f9f9; padding: 30px; border-radius: 5px; margin-top: 20px; }
-            .field { margin-bottom: 20px; }
-            .label { font-weight: bold; color: #555; margin-bottom: 5px; }
-            .value { padding: 10px; background-color: #fff; border-left: 3px solid #000; }
-            .footer { margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee; text-align: center; color: #777; font-size: 12px; }
+            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #222; }
+            .container { max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #eaeaea; border-radius: 12px; }
+            .header { background-color: #0d0d0d; color: #fff; padding: 24px; text-align: center; border-radius: 8px; }
+            .header h1 { margin: 0; font-size: 20px; font-weight: 700; }
+            .header p { margin: 6px 0 0 0; color: #aaa; font-size: 13px; }
+            .content { padding: 20px 0; }
+            .field { margin-bottom: 16px; }
+            .label { font-weight: 600; font-size: 12px; text-transform: uppercase; color: #666; margin-bottom: 4px; }
+            .value { padding: 12px; background-color: #f7f7f7; border-left: 3px solid #000; border-radius: 4px; font-size: 14px; }
+            .footer { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eaeaea; text-align: center; color: #888; font-size: 12px; }
           </style>
         </head>
         <body>
           <div class="container">
             <div class="header">
-              <h1>📸 New Contact Form Submission</h1>
-              <p>G3NERALOLA Photography</p>
+              <h1>📸 New Photography Booking Inquiry</h1>
+              <p>G3NERALOLA Visual Storytelling</p>
             </div>
             <div class="content">
               <div class="field">
-                <div class="label">From:</div>
+                <div class="label">Client Name:</div>
                 <div class="value">${data.name}</div>
               </div>
               <div class="field">
-                <div class="label">Email:</div>
+                <div class="label">Email Address:</div>
                 <div class="value">${data.email}</div>
               </div>
               ${data.phone ? `
               <div class="field">
-                <div class="label">Phone:</div>
+                <div class="label">WhatsApp / Phone:</div>
                 <div class="value">${data.phone}</div>
               </div>
               ` : ''}
               ${data.service ? `
               <div class="field">
-                <div class="label">Service Interested In:</div>
+                <div class="label">Service Package:</div>
                 <div class="value">${data.service}</div>
               </div>
               ` : ''}
+              ${data.shootDate ? `
               <div class="field">
-                <div class="label">Message:</div>
+                <div class="label">Target Date:</div>
+                <div class="value">${data.shootDate}</div>
+              </div>
+              ` : ''}
+              ${data.location ? `
+              <div class="field">
+                <div class="label">Preferred Location:</div>
+                <div class="value">${data.location}</div>
+              </div>
+              ` : ''}
+              ${data.budget ? `
+              <div class="field">
+                <div class="label">Budget Estimate:</div>
+                <div class="value">${data.budget}</div>
+              </div>
+              ` : ''}
+              ${data.look ? `
+              <div class="field">
+                <div class="label">Referenced Look:</div>
+                <div class="value">${data.look}</div>
+              </div>
+              ` : ''}
+              <div class="field">
+                <div class="label">Vision & Project Details:</div>
                 <div class="value">${data.message.replace(/\n/g, '<br>')}</div>
               </div>
             </div>
             <div class="footer">
-              <p>This email was sent from your photography portfolio contact form</p>
-              <p>Reply directly to this email to respond to ${data.name}</p>
+              <p>Sent from G3NERALOLA Visual Storytelling portfolio booking portal.</p>
+              <p>Reply directly to this email to converse with ${data.name}.</p>
             </div>
           </div>
         </body>
@@ -83,13 +113,13 @@ export async function sendContactEmail(data: ContactFormData) {
     // Send email
     const result = await sendEmailViaGmail({
       to: 'adeolaomogbolahan48@gmail.com',
-      subject: `📸 New Contact Form: ${data.name} - ${data.service || 'General Inquiry'}`,
+      subject: `📸 New Booking: ${data.name} - ${data.service || 'Session Inquiry'}`,
       html: htmlContent,
       replyTo: data.email,
     });
 
     if (!result.success) {
-      throw new Error(result.error || 'Failed to send email');
+      throw new Error(result.error || 'Failed to dispatch email. Please reach out via WhatsApp.');
     }
 
     return { success: true };

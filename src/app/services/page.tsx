@@ -3,216 +3,285 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Camera, Users, Briefcase, Sparkles, Clock, CheckCircle } from "lucide-react";
+import { 
+  Camera, 
+  Users, 
+  Briefcase, 
+  Sparkles, 
+  Clock, 
+  CheckCircle, 
+  ArrowRight, 
+  Calendar, 
+  MessageCircle,
+  HelpCircle,
+  ShieldCheck,
+  Zap
+} from "lucide-react";
+import PricingCalculator from "@/components/PricingCalculator";
 
 export default function ServicesPage() {
-  const services = [
+  const serviceTiers = [
     {
-      icon: Camera,
-      title: "Portrait Photography",
-      description:
-        "Professional portrait sessions that capture your personality and essence.",
+      id: "portrait",
+      title: "Solo Signature Portrait",
+      popular: false,
+      tagline: "High-impact personal branding, birthday milestones, and editorial headshots.",
+      priceNGN: "₦65,000",
+      priceUSD: "~$45 USD",
       features: [
-        "Individual or group portraits",
-        "Indoor and outdoor locations",
-        "Professional editing & retouching",
-        "High-resolution digital files",
-        "1-2 hour session",
+        "1.5-hour dedicated session",
+        "Up to 2 outfit changes",
+        "8 master retouched magazine-grade frames",
+        "Private online proofing gallery",
+        "48-hour sneak peek previews",
+        "Full commercial personal usage rights",
       ],
-      pricing: "From ₦15,000",
+      idealFor: "Students, creators, professionals, birthdays",
     },
     {
-      icon: Users,
-      title: "Lifestyle & Candid Shoots",
-      description:
-        "Natural, authentic photography that tells your story in everyday moments.",
+      id: "lifestyle",
+      title: "Editorial & Lifestyle Story",
+      popular: true,
+      tagline: "Multi-look visual narrative, high fashion, street culture, and curated moodboards.",
+      priceNGN: "₦125,000",
+      priceUSD: "~$85 USD",
       features: [
-        "Relaxed, candid photography",
-        "Multiple outfit changes",
-        "Location scouting included",
-        "Color-graded final images",
-        "2-3 hour session",
+        "2.5-hour immersive session",
+        "Up to 4 distinct outfit / look changes",
+        "18 master retouched cinematic frames",
+        "Access to all color-graded digital proofs",
+        "Creative moodboard & location scouting",
+        "Studio pass coordination or outdoor Lagos locations",
+        "48-hour highlights + 5-day final gallery",
       ],
-      pricing: "From ₦25,000",
+      idealFor: "Fashion stylists, influencers, creatives, couples",
     },
     {
-      icon: Briefcase,
-      title: "Events & Campus Life",
-      description:
-        "Comprehensive coverage of your special events and campus activities.",
+      id: "campus",
+      title: "Convocation & Campus Milestone",
+      popular: false,
+      tagline: "Celebrating university graduation and family pride with dignified elegance.",
+      priceNGN: "₦85,000",
+      priceUSD: "~$55 USD",
       features: [
-        "Full event coverage",
-        "Candid and posed shots",
-        "Photo highlights within 48 hours",
-        "Online gallery for sharing",
-        "Half or full-day coverage",
+        "2-hour convocation shoot",
+        "Gown look + native/casual secondary look",
+        "Solo + family & friend group portraits included",
+        "12 master retouched celebratory frames",
+        "Full unedited ceremony proofs gallery",
+        "Rapid 48-hour delivery for social media celebration",
       ],
-      pricing: "From ₦40,000",
+      idealFor: "LASU & Nigerian university graduating seniors",
     },
     {
-      icon: Sparkles,
-      title: "Creative & Gaming Content",
-      description:
-        "Unique creative photography for content creators and gamers.",
+      id: "brand",
+      title: "Brand & Creative Campaign",
+      popular: false,
+      tagline: "Commercial lookbooks, gaming setups, music artists, and product campaigns.",
+      priceNGN: "₦250,000+",
+      priceUSD: "From ~$165 USD",
       features: [
-        "Conceptual photo shoots",
-        "Gaming setup photography",
-        "Content creation collaboration",
-        "Social media ready formats",
-        "Flexible session duration",
+        "Half-day to full-day on-set production",
+        "Complete creative direction & shot list curation",
+        "30+ master retouched high-resolution assets",
+        "Full commercial advertising usage license",
+        "4K behind-the-scenes video reels included",
+        "72-hour expedited master delivery",
       ],
-      pricing: "Custom Quote",
+      idealFor: "Apparel brands, gaming creators, music artists",
     },
   ];
 
-  const process = [
+  const processSteps = [
     {
       step: "01",
-      title: "Initial Consultation",
+      title: "Vision & Moodboard",
       description:
-        "We discuss your vision, ideas, and requirements for the shoot.",
+        "We discuss your aesthetic goals, color palette, outfit selections, and location options via WhatsApp or brief call.",
     },
     {
       step: "02",
-      title: "Planning & Preparation",
+      title: "Booking & Date Lock",
       description:
-        "I'll handle location scouting, scheduling, and creative direction.",
+        "A 50% deposit secures your shoot date on the production calendar, and we finalize location permits or studio access.",
     },
     {
       step: "03",
       title: "The Photoshoot",
       description:
-        "Relaxed and professional session where we bring your vision to life.",
+        "A high-energy, completely relaxed session with natural direction, music, and guided framing. Zero stiff or awkward poses.",
     },
     {
       step: "04",
-      title: "Editing & Delivery",
+      title: "Master Delivery",
       description:
-        "Professional editing and delivery of your high-quality images.",
+        "Receive your 48-hour sneak peek highlights, select your favorite frames, and get the final master gallery delivered in 5–7 days.",
     },
   ];
 
   const faqs = [
     {
-      question: "How long does it take to receive my photos?",
-      answer:
-        "Edited photos are typically delivered within 7-14 days, depending on the type of shoot. Event highlights are available within 48 hours.",
+      q: "How do I secure my shoot date?",
+      a: "Dates are locked on the calendar with a 50% production deposit. The remaining 50% balance is payable on shoot day upon completion.",
     },
     {
-      question: "Can I choose the location for the shoot?",
-      answer:
-        "Absolutely! You can suggest locations, or I can recommend spots that work well for the type of photography you're looking for.",
+      q: "How soon do I receive my finished photos?",
+      a: "You will receive a 48-hour sneak peek highlight reel so you can start posting immediately. The full master retouched high-resolution gallery is delivered within 5 to 7 days.",
     },
     {
-      question: "What should I wear for my photoshoot?",
-      answer:
-        "I'll provide styling guidance during our consultation. Generally, wear what makes you feel confident and comfortable!",
+      q: "What if it rains during an outdoor shoot in Lagos?",
+      a: "We actively monitor weather forecasts. If adverse weather occurs, we can either seamlessly transition to an aesthetic indoor studio space or reschedule to an agreeable backup date without penalty.",
     },
     {
-      question: "Do you offer packages for multiple sessions?",
-      answer:
-        "Yes! I offer package deals for clients booking multiple sessions or long-term collaborations. Contact me for custom pricing.",
+      q: "Do you travel outside Lagos for shoots?",
+      a: "Yes! I am available nationwide (Abuja, Ibadan, Port Harcourt, Abeokuta) and worldwide. Travel logistics and lodging are calculated transparently into custom invoices.",
+    },
+    {
+      q: "Can I book studio sessions through you?",
+      a: "Absolutely. I partner with premier natural light and cyclorama studios across Ikeja, Lekki, Surulere, and Yaba. Studio hourly passes can be integrated directly into your session.",
     },
   ];
 
   return (
     <main className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 lg:px-8 bg-secondary">
-        <div className="container mx-auto text-center max-w-4xl">
+      {/* Hero */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-secondary/50 border-b border-border/60">
+        <div className="container mx-auto text-center max-w-4xl space-y-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6">Services</h1>
-            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-4">
-              Professional photography services tailored to capture your unique
-              story
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider mb-3">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Transparent & Realistic 2025/2026 Rates</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif tracking-tight">
+              Packages & Investments
+            </h1>
+            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto pt-2">
+              Every package is designed to deliver magazine-grade visual storytelling with zero hidden fees and rapid turnaround.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 lg:px-8">
+      {/* Pricing Cards Grid */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
-            {services.map((service, index) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {serviceTiers.map((tier, idx) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
+                key={tier.id}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className={`relative flex flex-col justify-between p-6 sm:p-7 rounded-3xl border transition-all duration-300 ${
+                  tier.popular
+                    ? "bg-card border-primary ring-2 ring-primary shadow-2xl scale-[1.02]"
+                    : "bg-card border-border/80 shadow-md hover:shadow-xl"
+                }`}
               >
-                <Card className="h-full flex flex-col">
-                  <CardHeader>
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-3 sm:mb-4">
-                      <service.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                    </div>
-                    <CardTitle className="text-xl sm:text-2xl">{service.title}</CardTitle>
-                    <CardDescription className="text-sm sm:text-base">
-                      {service.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <ul className="space-y-2 sm:space-y-3">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
-                          <span className="text-xs sm:text-sm text-muted-foreground">
-                            {feature}
-                          </span>
+                {tier.popular && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider shadow-md">
+                    Most Popular
+                  </div>
+                )}
+
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-xl font-bold font-serif text-foreground">{tier.title}</h3>
+                    <p className="text-xs text-muted-foreground mt-1 min-h-[32px]">{tier.tagline}</p>
+                  </div>
+
+                  {/* Price */}
+                  <div className="py-3 border-y border-border/60">
+                    <div className="text-3xl font-bold font-serif text-foreground">{tier.priceNGN}</div>
+                    <div className="text-xs text-muted-foreground font-mono">{tier.priceUSD}</div>
+                  </div>
+
+                  {/* Features */}
+                  <div className="space-y-2.5 pt-2">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      Included Deliverables:
+                    </span>
+                    <ul className="space-y-2">
+                      {tier.features.map((feat, fIdx) => (
+                        <li key={fIdx} className="flex items-start gap-2 text-xs text-foreground/90">
+                          <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span>{feat}</span>
                         </li>
                       ))}
                     </ul>
-                  </CardContent>
-                  <CardFooter className="flex flex-col items-start gap-3 sm:gap-4">
-                    <div className="text-xl sm:text-2xl font-bold">{service.pricing}</div>
-                    <Button asChild className="w-full">
-                      <Link href="/contact">Book This Service</Link>
-                    </Button>
-                  </CardFooter>
-                </Card>
+                  </div>
+                </div>
+
+                <div className="pt-6 mt-6 border-t border-border/50 space-y-3">
+                  <div className="text-[11px] text-muted-foreground">
+                    <strong>Ideal for:</strong> {tier.idealFor}
+                  </div>
+                  <Button
+                    asChild
+                    className={`w-full rounded-xl ${
+                      tier.popular
+                        ? "bg-primary text-primary-foreground hover:opacity-90"
+                        : "bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground"
+                    }`}
+                  >
+                    <Link href={`/contact?service=${encodeURIComponent(tier.title)}&budget=${encodeURIComponent(tier.priceNGN)}`}>
+                      Book This Tier
+                    </Link>
+                  </Button>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 lg:px-8 bg-secondary">
-        <div className="container mx-auto max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-10 md:mb-12"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-3 md:mb-4">How It Works</h2>
-            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-4">
-              A simple, straightforward process from concept to final delivery
-            </p>
-          </motion.div>
+      {/* Interactive Custom Estimator Section */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-secondary/30 border-y border-border/60">
+        <div className="container mx-auto">
+          <PricingCalculator />
+        </div>
+      </section>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {process.map((item, index) => (
+      {/* 4-Step Process Journey */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider">
+              <Zap className="w-3.5 h-3.5" />
+              <span>How It Works</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif tracking-tight">
+              From Concept to Gallery
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-base">
+              A structured, seamless process crafted with military punctuality.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {processSteps.map((step, idx) => (
               <motion.div
-                key={index}
+                key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="p-6 sm:p-8 rounded-3xl bg-card border border-border/80 shadow-md relative"
               >
-                <div className="text-4xl sm:text-5xl font-bold text-primary/20 mb-3 sm:mb-4">
-                  {item.step}
+                <span className="text-5xl font-bold font-mono text-primary/15 absolute top-5 right-6">
+                  {step.step}
+                </span>
+                <div className="space-y-3 pt-6">
+                  <h3 className="text-lg font-bold font-serif text-foreground">{step.title}</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">{item.title}</h3>
-                <p className="text-muted-foreground text-sm sm:text-base">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -220,59 +289,57 @@ export default function ServicesPage() {
       </section>
 
       {/* FAQs Section */}
-      <section className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-10 md:mb-12"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-3 md:mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-muted-foreground text-base sm:text-lg px-4">
-              Got questions? Here are some answers
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/40 border-t border-border/60">
+        <div className="container mx-auto max-w-4xl space-y-12">
+          <div className="text-center space-y-3">
+            <h2 className="text-3xl sm:text-4xl font-bold font-serif">Frequently Asked Questions</h2>
+            <p className="text-muted-foreground text-sm sm:text-base">
+              Everything you need to know about booking, deliverables, and shoot logistics.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="space-y-4 sm:space-y-6">
-            {faqs.map((faq, index) => (
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-card p-5 sm:p-6 rounded-lg border"
+                className="p-6 rounded-2xl bg-card border border-border/70 shadow-xs space-y-2"
               >
-                <h3 className="text-base sm:text-lg font-bold mb-2">{faq.question}</h3>
-                <p className="text-muted-foreground text-sm sm:text-base">{faq.answer}</p>
+                <h4 className="text-base font-bold text-foreground font-serif">{faq.q}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-secondary">
-        <div className="container mx-auto text-center max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 md:mb-6">Ready to Get Started?</h2>
-            <p className="text-muted-foreground text-base sm:text-lg mb-6 md:mb-8 max-w-2xl mx-auto px-4">
-              Let's discuss your photography needs and create something amazing
-              together
-            </p>
-            <Button asChild size="lg" className="w-full sm:w-auto">
-              <Link href="/contact">Book Your Session</Link>
+      {/* CTA Bottom Banner */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground">
+        <div className="container mx-auto max-w-4xl text-center space-y-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif">
+            Ready to Secure Your Shoot Date?
+          </h2>
+          <p className="text-primary-foreground/85 text-sm sm:text-base max-w-xl mx-auto font-light">
+            Dates fill quickly, especially during campus convocation cycles and festive weekends.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
+            <Button asChild size="lg" className="bg-white text-black hover:bg-gray-100 rounded-full px-8">
+              <Link href="/contact">Go to Booking Form</Link>
             </Button>
-          </motion.div>
+            <Button asChild size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10 rounded-full px-8">
+              <a
+                href="https://wa.me/2348021247749?text=Hi%20G3NERALOLA!%20I'm%20inquiring%20about%20your%20photography%20packages%20and%20availability."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>Chat Directly on WhatsApp</span>
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
     </main>
