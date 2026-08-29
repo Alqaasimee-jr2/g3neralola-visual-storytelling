@@ -44,7 +44,7 @@ export default function AboutClient() {
           >
             <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-2xl bg-neutral-900">
               <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763320227191.png?width=8000&height=8000&resize=contain"
+                src="/images/generalola.jpeg"
                 alt="Adeola Olamilekan - G3NERALOLA"
                 fill
                 className="object-cover"

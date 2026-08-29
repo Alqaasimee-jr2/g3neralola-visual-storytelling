@@ -8,7 +8,35 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const portfolioImages: GalleryItem[] = [
-  // Portraits
+  // ── PORTRAITS ──
+  {
+    src: "/images/generalola.jpeg",
+    alt: "Adeola Olamilekan signature portrait in cap and blazer",
+    category: "Portraits",
+    story: "Tactical composure and timeless elegance against the open Lagos sky.",
+    location: "Lagos, Nigeria",
+  },
+  {
+    src: "/images/shot-10.jpeg",
+    alt: "Warm close-up portrait with natural catchlights",
+    category: "Portraits",
+    story: "Intimate close-range lighting accentuating eye catchlights and skin tones.",
+    location: "Studio Lagos",
+  },
+  {
+    src: "/images/shot-20.jpeg",
+    alt: "Confidence & poise by the railing",
+    category: "Portraits",
+    story: "Relaxed outdoor direction capturing natural posture and subtle shadows.",
+    location: "Lagos, Nigeria",
+  },
+  {
+    src: "/images/shot-40.jpeg",
+    alt: "Monochrome Nigerian native wear & embroidered fila",
+    category: "Portraits",
+    story: "High-contrast black & white study in traditional elegance and geometry.",
+    location: "Lagos Mainland",
+  },
   {
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Screenshot_20240717_192507_Instagram-1763320468631.jpg?width=8000&height=8000&resize=contain",
     alt: "Pink hijab & eyewear editorial contrast",
@@ -31,78 +59,41 @@ const portfolioImages: GalleryItem[] = [
     location: "LASU Sports Complex",
   },
   {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/1757264318184-1763320761003.jpeg?width=8000&height=8000&resize=contain",
-    alt: "Curly hair editorial with colorful sunglasses",
-    category: "Portraits",
-    story: "Vibrant creative expression with sharp depth of field.",
-    location: "Surulere, Lagos",
-  },
-  {
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Photo_1753443625903-1763320770761.jpg?width=8000&height=8000&resize=contain",
     alt: "White hijab and Ayoba street cap",
     category: "Portraits",
     story: "Fusing modesty with Lagos streetwear identity.",
     location: "Lagos, Nigeria",
   },
-  {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Photo_1753443626927-1763320772409.jpg?width=8000&height=8000&resize=contain",
-    alt: "Profile silhouette with blue glasses",
-    category: "Portraits",
-    story: "Clean side-profile geometry and striking eyewear accents.",
-    location: "Lagos, Nigeria",
-  },
-  {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/ad3ola_olamil3kan_1763320869308-1763320935366.jpeg?width=8000&height=8000&resize=contain",
-    alt: "Warm ambient close-up portrait",
-    category: "Portraits",
-    story: "Intimate close-range lighting accentuating eye catchlights.",
-    location: "Studio Lagos",
-  },
 
-  // Street & Lifestyle
+  // ── CAMPUS & CONVOCATION ──
   {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Photo_1719729734474-1-1763320490472.jpg?width=8000&height=8000&resize=contain",
-    alt: "Lounge interior mood & ambiance",
-    category: "Street & Lifestyle",
-    story: "Lagos nightlife warmth, moody tones, and urban lifestyle.",
-    location: "Victoria Island, Lagos",
+    src: "/images/shot-25.jpeg",
+    alt: "Joyful convocation milestone in royal blue & celebratory hijab",
+    category: "Campus & Convocation",
+    story: "Capturing authentic triumph, graduation joy, and youthful radiance.",
+    location: "LASU Ojo Campus",
   },
   {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_20221112_174832-1763320764583.jpg?width=8000&height=8000&resize=contain",
-    alt: "Lagos Island monument street chronicle",
-    category: "Street & Lifestyle",
-    story: "Historical landmarks and urban identity of Lagos Island.",
-    location: "Lagos Island, Nigeria",
+    src: "/images/shot-30.jpeg",
+    alt: "Golden hour campus sunburst over LASU",
+    category: "Campus & Convocation",
+    story: "Atmospheric lens flare framing university grounds during golden hour.",
+    location: "LASU Campus",
   },
   {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/ad3ola_olamil3kan_1763320848766-1763320972260.jpeg?width=8000&height=8000&resize=contain",
-    alt: "Low-angle skyward architectural perspective",
-    category: "Street & Lifestyle",
-    story: "Dramatic upward perspective capturing Nigerian skies and structures.",
-    location: "Lagos, Nigeria",
+    src: "/images/shot-55.jpeg",
+    alt: "Classroom golden light falloff & window silhouettes",
+    category: "Campus & Convocation",
+    story: "Playing with natural afternoon sunlight streaming through lecture hall windows.",
+    location: "Lagos Campus",
   },
-
-  // Campus & Convocation
   {
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Photo_1749457997626-1763320478848.jpg?width=8000&height=8000&resize=contain",
     alt: "Academic convocation gown milestone",
     category: "Campus & Convocation",
     story: "Triumph and celebratory colors of university graduation.",
     location: "LASU Ojo Campus",
-  },
-  {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/e9136dc927ec109ab05a4e56b5c683ed-1763320470910.png?width=8000&height=8000&resize=contain",
-    alt: "Bridal and milestone celebration portrait",
-    category: "Campus & Convocation",
-    story: "Classic elegance and immaculate white lace detail.",
-    location: "Lagos, Nigeria",
-  },
-  {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/786650331-1763320473621.jpg?width=8000&height=8000&resize=contain",
-    alt: "Basketball court through fence framing",
-    category: "Campus & Convocation",
-    story: "Foreground framing creating depth in athletic campus spaces.",
-    location: "LASU Sports Field",
   },
   {
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/1086659322-1763320473931.jpg?width=8000&height=8000&resize=contain",
@@ -112,20 +103,50 @@ const portfolioImages: GalleryItem[] = [
     location: "Lagos, Nigeria",
   },
 
-  // Fine Art & Macro
+  // ── STREET & LIFESTYLE ──
   {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/962643062-1763320471825.jpg?width=8000&height=8000&resize=contain",
-    alt: "Red bougainvillea floral botanical study",
-    category: "Fine Art & Macro",
-    story: "Rich scarlet hues under intense afternoon sunlight.",
-    location: "Lagos Gardens",
+    src: "/images/shot-50.jpeg",
+    alt: "Lagos Island cathedral & coastal palm perspective",
+    category: "Street & Lifestyle",
+    story: "Urban architecture and colonial cathedral heritage on Lagos Island.",
+    location: "Lagos Island, Nigeria",
   },
   {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/8d17b7fbad6fba7b104d86d2de6b7468-1763320471099.png?width=8000&height=8000&resize=contain",
-    alt: "White and blue petal botanical macro",
+    src: "/images/shot-02.jpeg",
+    alt: "Tropical papaya foliage against vivid Nigerian sky",
+    category: "Street & Lifestyle",
+    story: "Everyday Lagos landscape transformed into vibrant tropical art.",
+    location: "Lagos, Nigeria",
+  },
+  {
+    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Photo_1719729734474-1-1763320490472.jpg?width=8000&height=8000&resize=contain",
+    alt: "Lounge interior mood & ambiance",
+    category: "Street & Lifestyle",
+    story: "Lagos nightlife warmth, moody tones, and urban lifestyle.",
+    location: "Victoria Island, Lagos",
+  },
+  {
+    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/ad3ola_olamil3kan_1763320848766-1763320972260.jpeg?width=8000&height=8000&resize=contain",
+    alt: "Low-angle skyward architectural perspective",
+    category: "Street & Lifestyle",
+    story: "Dramatic upward perspective capturing Nigerian skies and structures.",
+    location: "Lagos, Nigeria",
+  },
+
+  // ── FINE ART & MACRO ──
+  {
+    src: "/images/shot-01.jpeg",
+    alt: "Vibrant purple botanical floral macro",
     category: "Fine Art & Macro",
-    story: "Microscopic nature textures and delicate gradients.",
-    location: "Studio Botanical",
+    story: "Microscopic nature textures and delicate tropical color grade.",
+    location: "Lagos Botanical",
+  },
+  {
+    src: "/images/shot-03.jpeg",
+    alt: "Golden orange daisy bloom under ambient tropical light",
+    category: "Fine Art & Macro",
+    story: "Intense color saturation and fine petal details in outdoor light.",
+    location: "Lagos Gardens",
   },
   {
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/PSX_20240510_194341-1763320762070.jpg?width=8000&height=8000&resize=contain",
@@ -133,13 +154,6 @@ const portfolioImages: GalleryItem[] = [
     category: "Fine Art & Macro",
     story: "Optical refractions and vibrant spectrum play through glass.",
     location: "Studio Experiment",
-  },
-  {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/abdullah.qaasim_1763320890663-1763320935513.jpeg?width=8000&height=8000&resize=contain",
-    alt: "Macro rust texture with water droplets",
-    category: "Fine Art & Macro",
-    story: "Industrial decay meeting organic moisture in sharp macro focus.",
-    location: "Lagos Mainland",
   },
   {
     src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/ad3ola_olamil3kan_1763320865776-1763320935247.jpeg?width=8000&height=8000&resize=contain",
@@ -194,7 +208,7 @@ export default function PortfolioClient() {
             </h1>
           </div>
           <p className="text-sm font-serif italic text-muted-foreground max-w-xs">
-            18+ photographic stories across Lagos & Nigeria.
+            22+ photographic stories across Lagos & Nigeria.
           </p>
         </div>
       </section>

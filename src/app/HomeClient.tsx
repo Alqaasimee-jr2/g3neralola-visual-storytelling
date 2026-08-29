@@ -22,46 +22,46 @@ export default function HomeClient() {
 
   const featuredImages: GalleryItem[] = [
     {
-      src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Screenshot_20240717_192507_Instagram-1763320468631.jpg?width=8000&height=8000&resize=contain",
-      alt: "Pink hijab & eyewear contrast",
+      src: "/images/shot-10.jpeg",
+      alt: "Close-up portrait with natural catchlights",
       category: "Portraits",
-      story: "High-contrast editorial framing in Lagos sunlight.",
+      story: "High-contrast close-range editorial portrait in warm ambient light.",
       location: "Lagos, Nigeria",
     },
     {
-      src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Photo_1753443625903-1763320770761.jpg?width=8000&height=8000&resize=contain",
-      alt: "Street portrait & Ayoba cap",
-      category: "Culture",
-      story: "Authentic Nigerian streetwear identity.",
+      src: "/images/shot-25.jpeg",
+      alt: "Joyful convocation milestone celebration",
+      category: "Milestones",
+      story: "Capturing authentic triumph and campus celebration energy.",
       location: "LASU Ojo, Lagos",
     },
     {
-      src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/ad3ola_olamil3kan_1763320848766-1763320972260.jpeg?width=8000&height=8000&resize=contain",
-      alt: "Lagos architectural skyward gaze",
+      src: "/images/shot-40.jpeg",
+      alt: "Monochrome Nigerian native wear & fila",
+      category: "Culture",
+      story: "Classic black and white study in traditional elegance and geometry.",
+      location: "Lagos Mainland",
+    },
+    {
+      src: "/images/shot-50.jpeg",
+      alt: "Lagos Island cathedral & street architecture",
       category: "Street",
-      story: "Rhythm of Lagos City.",
+      story: "Urban heritage and vibrant coastal palms of Lagos Island.",
       location: "Lagos Island",
     },
     {
-      src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Photo_1749457997626-1763320478848.jpg?width=8000&height=8000&resize=contain",
-      alt: "Convocation milestone in vibrant gown",
-      category: "Milestones",
-      story: "University graduation glory.",
-      location: "LASU Campus",
-    },
-    {
-      src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/1086659322-1763320473931.jpg?width=8000&height=8000&resize=contain",
-      alt: "Basketball court motion capture",
-      category: "Campus Life",
-      story: "Raw athletic energy frozen in time.",
-      location: "Lagos",
-    },
-    {
-      src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/ad3ola_olamil3kan_1763320865776-1763320935247.jpeg?width=8000&height=8000&resize=contain",
-      alt: "Monochrome fine-art macro",
+      src: "/images/shot-55.jpeg",
+      alt: "Cinematic window sunset & interior silhouette",
       category: "Fine Art",
-      story: "Tactile textural beauty.",
-      location: "Studio Lagos",
+      story: "Playing with golden hour interior light falloff and shadows.",
+      location: "Lagos Campus",
+    },
+    {
+      src: "/images/shot-01.jpeg",
+      alt: "Vibrant purple botanical macro",
+      category: "Fine Art",
+      story: "Microscopic nature textures and delicate tropical color grade.",
+      location: "Lagos Botanical",
     },
   ];
 
@@ -164,10 +164,10 @@ export default function HomeClient() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Full-bleed Portrait Frame */}
           <div className="lg:col-span-6">
-            <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-2xl bg-neutral-900">
               <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763320227191.png?width=8000&height=8000&resize=contain"
-                alt="Adeola Olamilekan"
+                src="/images/generalola.jpeg"
+                alt="Adeola Olamilekan - G3NERALOLA"
                 fill
                 className="object-cover"
               />
@@ -179,7 +179,7 @@ export default function HomeClient() {
             </div>
           </div>
 
-          {/* Minimalist Editorial Narrative */}
+          {/* Minimal Editorial Narrative */}
           <div className="lg:col-span-6 space-y-8">
             <div className="space-y-4">
               <span className="text-xs font-mono tracking-widest uppercase text-muted-foreground">
@@ -223,9 +223,9 @@ export default function HomeClient() {
       {/* Interactive Visual Grade (Borderless) */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
         <BeforeAfterSlider
-          beforeImage="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Photo_1753443628920-1763320480153.jpg?width=8000&height=8000&resize=contain"
-          afterImage="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Photo_1753443625903-1763320770761.jpg?width=8000&height=8000&resize=contain"
-          beforeLabel="Raw Light"
+          beforeImage="/images/shot-20.jpeg"
+          afterImage="/images/generalola.jpeg"
+          beforeLabel="Raw Framing"
           afterLabel="Signature Grade"
           title="The Color Science"
           subtitle="Slide across to witness how light shaping and color grading bring frames to life."
