@@ -294,8 +294,8 @@ Details: ${formData.message || "Checking calendar availability!"}`;
 
               <div>
                 <p className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">Instagram</p>
-                <a href="https://instagram.com/ad3ola_olamil3kan_" target="_blank" rel="noopener noreferrer" className="text-base font-serif underline underline-offset-4">
-                  @ad3ola_olamil3kan_
+                <a href="https://www.instagram.com/g3ner4l0la/" target="_blank" rel="noopener noreferrer" className="text-base font-serif underline underline-offset-4">
+                  @g3ner4l0la
                 </a>
               </div>
 

@@ -100,13 +100,13 @@ export default function AboutClient() {
               </Button>
               <Button asChild variant="ghost" className="rounded-full px-8 py-6 text-sm font-medium">
                 <a
-                  href="https://instagram.com/ad3ola_olamil3kan_"
+                  href="https://www.instagram.com/g3ner4l0la/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
                   <Instagram className="w-4 h-4" />
-                  <span>@ad3ola_olamil3kan_</span>
+                  <span>@g3ner4l0la</span>
                 </a>
               </Button>
             </div>

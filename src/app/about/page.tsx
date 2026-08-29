@@ -45,7 +45,7 @@ export default function AboutPage() {
       "jobTitle": "Visual Storyteller & Photographer",
       "url": "https://g3neralola.com/about",
       "sameAs": [
-        "https://instagram.com/ad3ola_olamil3kan_",
+        "https://www.instagram.com/g3ner4l0la/",
         "https://wa.me/2348021247749"
       ]
     }

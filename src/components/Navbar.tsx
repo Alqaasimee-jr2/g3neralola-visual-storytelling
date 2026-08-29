@@ -102,7 +102,7 @@ export default function Navbar() {
           {/* Right Action Icons & Book CTA */}
           <div className="hidden md:flex items-center space-x-3">
             <a
-              href="https://instagram.com/ad3ola_olamil3kan_"
+              href="https://www.instagram.com/g3ner4l0la/"
               target="_blank"
               rel="noopener noreferrer"
               className={`p-2 rounded-full transition-colors ${
